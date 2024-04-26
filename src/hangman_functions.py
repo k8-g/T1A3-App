@@ -1,4 +1,5 @@
-import os
+import os 
+import hangman_screens
 
 # Function to clear screen
 def clear_screen():
@@ -15,7 +16,7 @@ def any_key_return_to_menu():
 # Function to display at beginning of application
 def display_intro():
     clear_screen()
-    print("Welcome to Hangman!")
+    print(hangman_screens.intro_image)
 
 # Function to display help info
 def display_help():
