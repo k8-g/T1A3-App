@@ -35,5 +35,6 @@ def display_stats():
 def play_game():
     clear_screen()
     my_game = Game()
-    print(my_game.generate_word())
+    my_game.start_game()
+    
 
