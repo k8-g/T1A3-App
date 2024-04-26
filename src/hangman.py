@@ -1,5 +1,5 @@
 # Imports of our own functions
-from hangman_functions import display_help, display_intro, display_stats
+from hangman_functions import display_help, display_intro, display_stats, play_game
 
 def create_menu():
     print("Press 'Space Key' to start game  |  Press S to view stats") 
@@ -16,6 +16,7 @@ while user_selection != "q":
     user_selection = create_menu()
     if (user_selection == " "):
         print("Start game!")
+        play_game()
     elif (user_selection == "s"):
         display_stats()
     elif (user_selection == "?"):

@@ -1,5 +1,6 @@
 import os 
 import hangman_screens
+from Game import Game
 
 # Function to clear screen
 def clear_screen():
@@ -33,4 +34,6 @@ def display_stats():
 # Function to start the game
 def play_game():
     clear_screen()
-    print("")
+    my_game = Game()
+    print(my_game.generate_word())
+
