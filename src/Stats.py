@@ -25,14 +25,12 @@ class Stats:
 
     # save stats
     def save_stats(self):
-        print("Save Stats")
         stat_file = open(self._file_name, "w")
         stat_file.write(f"{self._wins},{self._losses}")
         stat_file.close()
 
     # load stats
     def load_stats(self):
-        print("load stats")
         if os.path.isfile(self._file_name):
             stat_file = open(self._file_name, "r")
             stats = stat_file.read()

@@ -1,4 +1,5 @@
 from wonderwords import RandomWord
+import hangman_screens
 
 class Game:
     #Contructor
@@ -65,13 +66,32 @@ class Game:
             print(f"Sorry, {_guess} isn't in this word.")
             if self._incorrect == 6:
                 self.lose_game()
+        print("____________________________________________________________")
 
+    # tells when to draw what hangman stage
+    def draw_hangman(self):
+        if self._incorrect == 0:
+            print(hangman_screens.hangman_0)
+        elif self._incorrect == 1:
+            print(hangman_screens.hangman_1)
+        elif self._incorrect == 2:
+            print(hangman_screens.hangman_2)
+        elif self._incorrect == 3:
+            print(hangman_screens.hangman_3)
+        elif self._incorrect == 4:
+            print(hangman_screens.hangman_4)
+        elif self._incorrect == 5:
+            print(hangman_screens.hangman_5)
+        else:
+            print(hangman_screens.hangman_6)
 
-# starts the game
+    # starts the game
     def start_game(self):
         #generates random word
         self._hangman_word = self.generate_word()
         self.check_letters()
+        self.draw_hangman()
+
 
         # while game is playing
         while self._game_over == False:
@@ -83,4 +103,6 @@ class Game:
             else:
                 print("Please only select one letter.")
             self.check_letters()
+            self.draw_hangman()
+        print("____________________________________________________________")
 
