@@ -40,14 +40,17 @@ class Game:
 
     #checks if user's guess letter is correct and updates screen
     def check_user_guess(self, _guess):
-
-        if _guess in self._hangman_word:
-            # correct guess
+        # if they guess a letter they've already guessed, this warning comes up and still counts as a turn
+        if _guess in self._guesses:
+            print(f"You've already guessed {_guess}.")
+        else: 
+            # if they haven't guessed the letter before, it gets added to the guess list
             self._guesses += _guess
 
-        else:
+        if _guess not in self._hangman_word:
             #incorrect guess
             self._incorrect += 1
+            print(f"Sorry, {_guess} isn't in this word.")
             if self._incorrect == 6:
                 self._game_over = True
                 print("GAME OVER!")
@@ -63,9 +66,9 @@ class Game:
         # while game is playing
         while self._game_over == False:
             print(self._blanked_word)
-            user_letter = input ("Try guessing a letter.\n").lower() 
-            if len(user_letter) == 1:
-                self.check_user_guess(user_letter)
+            user_guess = input ("Try guessing a letter.\n").lower().strip() 
+            if len(user_guess) == 1:
+                self.check_user_guess(user_guess)
             else:
                 print("Please only select one letter.")
             self.check_letters()
