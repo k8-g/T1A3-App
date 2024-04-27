@@ -1,5 +1,6 @@
 from wonderwords import RandomWord
 import hangman_screens
+import os
 
 class Game:
     #Contructor
@@ -84,15 +85,18 @@ class Game:
     # tells when to draw what hangman stage
     def draw_hangman(self):
         print(hangman_screens.hangman_images [self._incorrect])
+        print("\n")
 
 
 
     # starts the game
     def start_game(self):
+        self.draw_hangman() 
         #generates random word
         self._hangman_word = self.generate_word()
-        self.check_letters()
-        self.draw_hangman()
+        # displays dashes for the length of the word
+        print("_ "*len(self._hangman_word))
+        
 
 
         # while game is playing
@@ -100,6 +104,7 @@ class Game:
             print(self._blanked_word)
             # converts input into lowercase and strips any spaces inputted
             user_guess = input ("Try guessing a letter.\n").lower().strip() 
+            os.system("clear")
             if len(user_guess) == 1:
                 self.check_user_guess(user_guess)
             else:
