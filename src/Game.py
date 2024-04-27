@@ -106,7 +106,13 @@ class Game:
             user_guess = input ("Try guessing a letter.\n").lower().strip() 
             os.system("clear")
             if len(user_guess) == 1:
-                self.check_user_guess(user_guess)
+                # quit the game if user types !
+                if user_guess == "!":
+                    self._game_over = True
+                    print("GAME ENDED")
+                else:
+                    # otherwise turn continue as normal
+                    self.check_user_guess(user_guess)  
             else:
                 self.line_break()
                 print("Please only select one letter.")

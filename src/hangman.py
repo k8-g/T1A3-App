@@ -1,13 +1,7 @@
 # Imports of our own functions
-from hangman_functions import display_help, display_intro, display_stats, play_game
+from hangman_functions import display_help, display_intro, display_stats, play_game, create_menu
 
-def create_menu():
-    print("Press 'Space Key' to start game  |  Press S to view stats") 
-    print("Press ? to display help          |  Press Q to exit game") 
- 
 
-    menu_selection = input("Select one of the above and hit enter.")
-    return menu_selection.lower()
 
 user_selection = ""
 

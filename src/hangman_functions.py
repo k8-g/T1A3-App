@@ -12,6 +12,15 @@ from rich.markdown import Markdown
 player_name = "Player"
 stats = Stats(player_name)
 stats.load_stats()
+console = Console()
+
+def create_menu():
+    console.print("Press 'Space' to start game  |  Press 'S' to view stats",justify="center") 
+    console.print("Press '?' to display help   |  Press 'Q' to exit game",justify="center") 
+ 
+
+    menu_selection = input("Select one of the above and hit enter.")
+    return menu_selection.lower()
 
 # Function to clear screen
 def clear_screen():
@@ -28,16 +37,15 @@ def any_key_return_to_menu():
 # Function to display at beginning of application
 def display_intro():
     clear_screen()
-    print(hangman_screens.intro_image)
+    console.print(hangman_screens.intro_image)
+    console.print("    WELCOME TO HANGMAN!", style="blink", justify="center")
 
 # Function to display help info
 def display_help():
     clear_screen()
-    console = Console()
     with open("HELP.md") as readme:
         markdown = Markdown(readme.read())
     console.print(markdown)
-    print("This will print some help info for how to play the game.") 
     any_key_return_to_menu()
 
 # Function to display stats page
