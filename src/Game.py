@@ -56,6 +56,8 @@ class Game:
         self._game_over = True
         self.line_break()
         print("GAME OVER!")
+        # terminal bell/visual bell when you lose the game
+        print("\a")
         print(f"Sorry, you lost. The word was \"{self._hangman_word}\".")
         self._stats.add_loss()
 
@@ -81,20 +83,9 @@ class Game:
 
     # tells when to draw what hangman stage
     def draw_hangman(self):
-        if self._incorrect == 0:
-            print(hangman_screens.hangman_0)
-        elif self._incorrect == 1:
-            print(hangman_screens.hangman_1)
-        elif self._incorrect == 2:
-            print(hangman_screens.hangman_2)
-        elif self._incorrect == 3:
-            print(hangman_screens.hangman_3)
-        elif self._incorrect == 4:
-            print(hangman_screens.hangman_4)
-        elif self._incorrect == 5:
-            print(hangman_screens.hangman_5)
-        else:
-            print(hangman_screens.hangman_6)
+        print(hangman_screens.hangman_images [self._incorrect])
+
+
 
     # starts the game
     def start_game(self):

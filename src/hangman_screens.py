@@ -82,3 +82,5 @@ hangman_6 = """
    |   / \ 
    |
    |__________ """
+
+hangman_images = [hangman_0, hangman_1, hangman_2, hangman_3, hangman_4, hangman_5, hangman_6]

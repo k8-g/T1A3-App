@@ -3,6 +3,10 @@ import os
 import hangman_screens
 from Game import Game
 from Stats import Stats
+from rich.console import Console
+from rich.markdown import Markdown
+
+
 
 # global varibles
 player_name = "Player"
@@ -29,6 +33,10 @@ def display_intro():
 # Function to display help info
 def display_help():
     clear_screen()
+    console = Console()
+    with open("HELP.md") as readme:
+        markdown = Markdown(readme.read())
+    console.print(markdown)
     print("This will print some help info for how to play the game.") 
     any_key_return_to_menu()
 
