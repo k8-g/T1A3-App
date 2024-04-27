@@ -1,6 +1,13 @@
+# imports
 import os 
 import hangman_screens
 from Game import Game
+from Stats import Stats
+
+# global varibles
+player_name = "Player"
+stats = Stats(player_name)
+stats.load_stats()
 
 # Function to clear screen
 def clear_screen():
@@ -29,12 +36,14 @@ def display_help():
 def display_stats():
     clear_screen()
     print("Stats")
+    print("Wins | Losses")
+    print(f"{stats.get_wins()}    | {stats.get_losses()} ")
     any_key_return_to_menu()
+
 
 # Function to start the game
 def play_game():
     clear_screen()
-    my_game = Game()
+    my_game = Game(stats)
     my_game.start_game()
-    
-
+    stats.save_stats()

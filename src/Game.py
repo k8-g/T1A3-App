@@ -2,13 +2,14 @@ from wonderwords import RandomWord
 
 class Game:
     #Contructor
-    def __init__(self):
+    def __init__(self, _stats=None):
         self._hangman_word = ""
         self._incorrect = 0
         self._guesses = ""
         self._blanked_word = ""
         self._word_generator = RandomWord()
         self._game_over = False
+        self._stats = _stats
         
 
 
@@ -34,9 +35,20 @@ class Game:
             self._blanked_word += " "
         # if the whole word has been guessed, then the game ends
         if word_guessed == True:
-            self._game_over = True
-            print(f"Congratulations, you guessed it! It was \"{self._hangman_word}\".")
+            self.win_game()
+    
+    # win game function
+    def win_game(self):
+        self._game_over = True
+        print(f"Congratulations, you guessed it! It was \"{self._hangman_word}\".")
+        self._stats.add_win()
 
+    # lose game function
+    def lose_game(self):
+        self._game_over = True
+        print("GAME OVER!")
+        print(f"Sorry, you lost. The word was \"{self._hangman_word}\".")
+        self._stats.add_loss()
 
     #checks if user's guess letter is correct and updates screen
     def check_user_guess(self, _guess):
@@ -52,9 +64,7 @@ class Game:
             self._incorrect += 1
             print(f"Sorry, {_guess} isn't in this word.")
             if self._incorrect == 6:
-                self._game_over = True
-                print("GAME OVER!")
-                print(f"Sorry, you lost. The word was \"{self._hangman_word}\".")
+                self.lose_game()
 
 
 # starts the game
@@ -66,6 +76,7 @@ class Game:
         # while game is playing
         while self._game_over == False:
             print(self._blanked_word)
+            # converts input into lowercase and strips any spaces inputted
             user_guess = input ("Try guessing a letter.\n").lower().strip() 
             if len(user_guess) == 1:
                 self.check_user_guess(user_guess)
@@ -73,4 +84,3 @@ class Game:
                 print("Please only select one letter.")
             self.check_letters()
 
-        # remove spaces using strip from input

@@ -1,7 +1,7 @@
 import os
 
 class Stats:
-    def __init__(self, _player_name):
+    def __init__(self, _player_name=""):
         self._wins = 0
         self._losses = 0
         self._player_name = _player_name
@@ -27,7 +27,7 @@ class Stats:
     def save_stats(self):
         print("Save Stats")
         stat_file = open(self._file_name, "w")
-        stat_file.write(self._wins + "," + self._losses)
+        stat_file.write(f"{self._wins},{self._losses}")
         stat_file.close()
 
     # load stats
