@@ -17,7 +17,7 @@ def test_check_letters():
     my_game._guesses = "e"
     my_game._hangman_word = "feline"
     my_game.check_letters()
-    assert my_game._blanked_word == "_ e _ _ _ e "
+    assert my_game.get_blanked_word() == "_ e _ _ _ e "
 
 
 def test_check_letters_incorrect():
@@ -25,7 +25,7 @@ def test_check_letters_incorrect():
     my_game._guesses = "t"
     my_game._hangman_word = "feline"
     my_game.check_letters()
-    assert my_game._blanked_word == "_ _ _ _ _ _ "
+    assert my_game.get_blanked_word() == "_ _ _ _ _ _ "
 
 def test_check_letters_multiple():
     my_game = Game()
