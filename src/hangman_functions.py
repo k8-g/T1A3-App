@@ -16,6 +16,7 @@ console = Console()
 
 # Menu function, displays options that can be executed
 def create_menu():
+    # Uses Rich package to center text
     console.print("Press 'Space' to start game  |  Press 'S' to view stats",justify="center") 
     console.print("Press '?' to display help   |  Press 'Q' to exit game",justify="center") 
  
@@ -41,6 +42,7 @@ def display_intro():
     clear_screen()
     # Displays Hangman ASCII image loaded from hangman_screens file
     console.print(hangman_screens.intro_image)
+    # Uses Rich package to have blinking text that is centered
     console.print("    WELCOME TO HANGMAN!", style="blink", justify="center")
 
 # Function to display help info
