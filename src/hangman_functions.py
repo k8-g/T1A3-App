@@ -1,4 +1,4 @@
-# imports
+# Imports from packages/files
 import os 
 import hangman_screens
 from Game import Game
