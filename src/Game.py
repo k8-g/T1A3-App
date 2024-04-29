@@ -1,8 +1,11 @@
 # Imports from dependencies/packages/files
+import os
 from colored import Fore, Back, Style
+from rich.console import Console
 from wonderwords import RandomWord
 import hangman_screens
-import os
+
+console = Console()
 
 # Class for Game objects
 class Game:
@@ -112,7 +115,7 @@ class Game:
                 # Quits the game if user types '!'
                 if user_guess == "!":
                     self._game_over = True
-                    print("GAME ENDED")
+                    console.print("[bold] GAME ENDED [/bold]")
                 else:
                     # Otherwise turn continues as normal
                     self.check_user_guess(user_guess)  
