@@ -1,3 +1,5 @@
+# Import from package
+from colored import Fore, Back, Style
 # Imports of own functions
 from hangman_functions import display_help, display_intro, display_stats, play_game, create_menu
 
@@ -24,6 +26,7 @@ while user_selection != "q":
         print("Bye!")
     # If user inputs anything other than the above options, this warning message comes up
     else:
-        print("Please pick one of the above.")
+        display_intro()
+        print(f"{Fore.magenta}Please pick one of the four options displayed.{Style.reset}")
 # This message displays when the user quits the application
 print("Good Game!")
