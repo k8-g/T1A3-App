@@ -6,7 +6,7 @@ To start the game, press the `'Spacebar'` key and hit `'Enter'`. You will be ask
 - If you want to quit the game at any time while playing, just press `'!' + 'Enter'`. This will end the game, then `'Q' + 'Enter'` to exit out of the program.
 -----
 -  **Press 'S' to view stats:**
-Here you can view your wins and losses! Press any key and `'Enter'` to exit the stats page.
+Here you can view your wins and losses! Press any key and `'Enter'` or just `'Enter'` to exit the 'View Stats' page.
 ---
 -  **Press 'Q' to exit game:**
 `'Q' + 'Enter'` exits the program. 
