@@ -22,17 +22,17 @@ def create_menu():
  
     # Asks the user for input, selecting one of the above options
     menu_selection = input("Select one of the above and hit 'Enter'.")
-    # converts the user's selection into lowercase if they input as uppercase
+    # Converts the user's selection into lowercase if they input as uppercase
     return menu_selection.lower()
 
-# Function to clear screen
+# Function to clear screen which can be called upon in other functions
 def clear_screen():
     # This will clear the screen between menus
     os.system("clear")
 
 # Function to return to main menu after user inputs any key + Enter
 def any_key_return_to_menu():
-    # Waits for the user to input a key to acknowledge they have finished reading the help page
+    # Waits for the user to input a key to acknowledge they have finished reading the page
     user_input = input("Press any key to return to main menu.")
     # Clears the screen before returning to main menu
     clear_screen()

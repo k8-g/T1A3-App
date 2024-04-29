@@ -1,4 +1,4 @@
-# Imports
+# Imports from dependencies/packages/files
 from colored import Fore, Back, Style
 from wonderwords import RandomWord
 import hangman_screens
@@ -6,7 +6,7 @@ import os
 
 # Class for Game objects
 class Game:
-    #Constructor
+    # Constructor
     def __init__(self, _stats=None):
         self._hangman_word = ""
         self._incorrect = 0
@@ -17,7 +17,6 @@ class Game:
         self._stats = _stats
         
 
-
     # Generates random word to be guessed
     def generate_word(self):
         return self._word_generator.word(word_min_length=5, word_max_length=8)
@@ -25,7 +24,6 @@ class Game:
     # Getter to get blanked word
     def get_blanked_word(self):
         return self._blanked_word
-
 
 # Goes through each letter and checks if the guessed letter is in word then displays letter if correct, displays blank if incorrect
     def check_letters(self):
@@ -38,7 +36,7 @@ class Game:
                 self._blanked_word += "_"
                 word_guessed = False
             self._blanked_word += " "
-        # If the every letter has been guessed, then the game ends
+        # If every letter has been guessed, then the game ends
         if word_guessed == True:
             self.win_game()
     

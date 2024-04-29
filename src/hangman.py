@@ -6,7 +6,7 @@ user_selection = ""
 
 # Displays intro menu
 display_intro()
-# while user's selection isn't equal to 'q'
+# While user's selection isn't equal to 'q'
 while user_selection != "q":
     user_selection = create_menu()
     # If user selects 'Spacebar', the game starts
@@ -16,7 +16,7 @@ while user_selection != "q":
     # If user selects 'S', the 'View Stats' page loads
     elif (user_selection == "s"):
         display_stats()
-    # If the user selects '?', the 'Help Info' page loads
+    # If the user selects '?', the 'Hangman Help' page loads
     elif (user_selection == "?"):
         display_help()
     # If the user selects 'q', it quits the application
