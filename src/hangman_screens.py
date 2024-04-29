@@ -1,3 +1,4 @@
+# Hangman intro ASCII image
 intro_image = """                                                                                                                                 
                            #@@@@@@@@@@@@@@@@@@@              
                            #*                =@        
@@ -18,7 +19,7 @@ intro_image = """
                            #*                                       
                       *@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
                                                  """
-
+# The different stages of the Hangman gallows from start to finish
 hangman_0 = """
    ______
    |    |
@@ -81,5 +82,5 @@ hangman_6 = """
    |   / \ 
    |
    |__________ """
-
+# List of hangman images to be called on in Game.py
 hangman_images = [hangman_0, hangman_1, hangman_2, hangman_3, hangman_4, hangman_5, hangman_6]

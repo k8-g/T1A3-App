@@ -8,35 +8,38 @@ from rich.markdown import Markdown
 
 
 
-# global varibles
+# Global varibles that can be called on from anywhere in this file
 player_name = "Player"
 stats = Stats(player_name)
 stats.load_stats()
 console = Console()
 
+# Menu function, displays options that can be executed
 def create_menu():
     console.print("Press 'Space' to start game  |  Press 'S' to view stats",justify="center") 
     console.print("Press '?' to display help   |  Press 'Q' to exit game",justify="center") 
  
-
+    # Asks the user for input, selecting one of the above options
     menu_selection = input("Select one of the above and hit enter.")
+    # converts the user's selection into lowercase if they input as uppercase
     return menu_selection.lower()
 
 # Function to clear screen
 def clear_screen():
-    # this will clear the screen between menus
+    # This will clear the screen between menus
     os.system("clear")
 
-# function to return to main menu after user says so
+# Function to return to main menu after user inputs any key + Enter
 def any_key_return_to_menu():
-    # Wait for the user to input a key to acknowledge they have finished the help page
+    # Waits for the user to input a key to acknowledge they have finished reading the help page
     user_input = input("Press any key to return to main menu.")
-    # Clears the screen before returning to menu
+    # Clears the screen before returning to main menu
     clear_screen()
 
 # Function to display at beginning of application
 def display_intro():
     clear_screen()
+    # Displays Hangman ASCII image loaded from hangman_screens file
     console.print(hangman_screens.intro_image)
     console.print("    WELCOME TO HANGMAN!", style="blink", justify="center")
 
