@@ -59,9 +59,9 @@ def display_help():
 # Function to display stats page
 def display_stats():
     clear_screen()
-    print("Stats")
-    print("Wins | Losses")
-    print(f"{stats.get_wins()}    | {stats.get_losses()} ")
+    console.print("[bold cyan]   Stats[/bold cyan]")
+    console.print("[bold green]Wins[/bold green] | [bold red]Losses[/bold red]")
+    print(f"{stats.get_wins()}    | {stats.get_losses()} \n")
     any_key_return_to_menu()
 
 
