@@ -18,7 +18,8 @@ intro_image = """
                            #*                          
                            #*                                       
                       *@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
-                                                 """
+"""
+
 # The different stages of the Hangman gallows from start to finish
 hangman_0 = """
    ______
