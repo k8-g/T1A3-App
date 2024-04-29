@@ -28,7 +28,8 @@ hangman_0 = """
    |   
    |   
    |
-   |__________ """
+   |__________ 
+   """
 
 hangman_1 = """
    ______
@@ -37,7 +38,8 @@ hangman_1 = """
    |   
    |   
    |
-   |__________ """
+   |__________ 
+   """
 
 hangman_2 = """
    ______
@@ -46,7 +48,8 @@ hangman_2 = """
    |    |
    |   
    |
-   |__________ """
+   |__________ 
+   """
 
 hangman_3 = """
    ______
@@ -55,7 +58,8 @@ hangman_3 = """
    |   /|
    |   
    |
-   |__________ """
+   |__________ 
+   """
 
 hangman_4 = """
    ______
@@ -64,7 +68,8 @@ hangman_4 = """
    |   /|\ 
    |   
    |
-   |__________ """
+   |__________ 
+   """
 
 hangman_5 = """
    ______
@@ -73,7 +78,8 @@ hangman_5 = """
    |   /|\ 
    |   / 
    |
-   |__________ """
+   |__________ 
+   """
 
 hangman_6 = """
    ______
@@ -82,6 +88,12 @@ hangman_6 = """
    |   /|\ 
    |   / \ 
    |
-   |__________ """
+   |__________ 
+   """
+
 # List of hangman images to be called on in Game.py
-hangman_images = [hangman_0, hangman_1, hangman_2, hangman_3, hangman_4, hangman_5, hangman_6]
+hangman_images = [
+   hangman_0, hangman_1, hangman_2, 
+   hangman_3, hangman_4, hangman_5, 
+   hangman_6
+   ]
