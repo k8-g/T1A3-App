@@ -1,4 +1,5 @@
 # Imports
+from colored import Fore, Back, Style
 from wonderwords import RandomWord
 import hangman_screens
 import os
@@ -49,7 +50,7 @@ class Game:
     # Win game function
     def win_game(self):
         self._game_over = True
-        print(f"Congratulations, you guessed it! It was \"{self._hangman_word}\".")
+        print(f"{Fore.green}Congratulations, you guessed it! It was \"{self._hangman_word}\".{Style.reset}")
         self.line_break()
         self._stats.add_win()
         
@@ -62,7 +63,7 @@ class Game:
         print("GAME OVER!")
         # Terminal bell/visual bell when you lose the game
         print("\a")
-        print(f"Sorry, you lost. The word was \"{self._hangman_word}\".")
+        print(f"{Fore.red}Sorry, you lost. The word was \"{self._hangman_word}\".{Style.reset}")
         self._stats.add_loss()
 
     # Checks if user's guess letter is correct and updates screen
