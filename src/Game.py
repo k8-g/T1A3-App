@@ -60,7 +60,7 @@ class Game:
     def lose_game(self):
         self._game_over = True
         self.line_break()
-        print("GAME OVER!")
+        print(f"{Fore.cyan}GAME OVER!{Style.reset}")
         # Terminal bell/visual bell when you lose the game
         print("\a")
         print(f"{Fore.red}Sorry, you lost. The word was \"{self._hangman_word}\".{Style.reset}")
@@ -71,7 +71,7 @@ class Game:
         self.line_break()
         # If they guess a letter they've already guessed, this warning comes up and still counts as a turn
         if _guess in self._guesses:
-            print(f"You've already guessed {_guess}.")
+            print(f"{Fore.magenta}You've already guessed {_guess}.{Style.reset}")
         else: 
             # If they haven't guessed the letter before, it gets added to the guess list which is hidden from user
             self._guesses += _guess
@@ -84,7 +84,7 @@ class Game:
                 self.lose_game()
         else:
             # Correct guess
-            print("Yay! You guessed correct!")   
+            print(f"{Fore.green}Yay! You guessed correct!{Style.reset}")   
         self.line_break()
 
     # Tells when to draw what hangman gallows stage 
