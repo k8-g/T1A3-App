@@ -33,9 +33,10 @@ def clear_screen():
 # Function to return to main menu after user inputs any key + Enter
 def any_key_return_to_menu():
     # Waits for the user to input a key to acknowledge they have finished reading the page
-    user_input = input("Press any key to return to main menu.")
+    user_input = input("Press any key + 'Enter' or 'Enter' to return to main menu.")
     # Clears the screen before returning to main menu
     clear_screen()
+    display_intro()
 
 # Function to display at beginning of application
 def display_intro():
