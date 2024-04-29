@@ -1,10 +1,11 @@
 # Imports from packages/files
-import os 
+import os
+from rich.console import Console
+from rich.markdown import Markdown
 import hangman_screens
 from Game import Game
 from Stats import Stats
-from rich.console import Console
-from rich.markdown import Markdown
+
 
 
 
@@ -44,7 +45,7 @@ def display_intro():
     # Displays Hangman ASCII image loaded from hangman_screens file
     console.print(hangman_screens.intro_image)
     # Uses Rich package to have blinking text that is centered
-    console.print("    WELCOME TO HANGMAN!", style="blink", justify="center")
+    console.print("    [bold cyan]WELCOME TO HANGMAN![/bold cyan]", style="blink", justify="center")
 
 # Function to display help info
 def display_help():
