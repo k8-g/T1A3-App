@@ -17,11 +17,11 @@ class Game:
         
 
 
-    # Generates random word
+    # Generates random word to be guessed
     def generate_word(self):
         return self._word_generator.word(word_min_length=5, word_max_length=8)
 
-    # Getter
+    # Getter to get blanked word
     def get_blanked_word(self):
         return self._blanked_word
 
@@ -37,7 +37,7 @@ class Game:
                 self._blanked_word += "_"
                 word_guessed = False
             self._blanked_word += " "
-        # If the whole word has been guessed, then the game ends
+        # If the every letter has been guessed, then the game ends
         if word_guessed == True:
             self.win_game()
     
@@ -110,7 +110,7 @@ class Game:
             user_guess = input ("Try guessing a letter.\n").lower().strip() 
             os.system("clear")
             if len(user_guess) == 1:
-                # Quit the game if user types '!'
+                # Quits the game if user types '!'
                 if user_guess == "!":
                     self._game_over = True
                     print("GAME ENDED")

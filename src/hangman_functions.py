@@ -21,7 +21,7 @@ def create_menu():
     console.print("Press '?' to display help   |  Press 'Q' to exit game",justify="center") 
  
     # Asks the user for input, selecting one of the above options
-    menu_selection = input("Select one of the above and hit enter.")
+    menu_selection = input("Select one of the above and hit 'Enter'.")
     # converts the user's selection into lowercase if they input as uppercase
     return menu_selection.lower()
 
@@ -48,6 +48,7 @@ def display_intro():
 # Function to display help info
 def display_help():
     clear_screen()
+    # HELP.md is shown with Markdown using Rich package
     with open("HELP.md") as readme:
         markdown = Markdown(readme.read())
     console.print(markdown)

@@ -25,5 +25,5 @@ while user_selection != "q":
     # If user inputs anything other than the above options, this warning message comes up
     else:
         print("Please pick one of the above.")
-
+# This message displays when the user quits the application
 print("Good Game!")
