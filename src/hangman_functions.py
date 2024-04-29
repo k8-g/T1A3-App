@@ -7,8 +7,6 @@ from Game import Game
 from Stats import Stats
 
 
-
-
 # Global varibles that can be called on from anywhere in this file
 player_name = "Player"
 stats = Stats(player_name)
@@ -63,7 +61,6 @@ def display_stats():
     console.print("[bold green]Wins[/bold green] | [bold red]Losses[/bold red]")
     print(f"{stats.get_wins()}    | {stats.get_losses()} \n")
     any_key_return_to_menu()
-
 
 # Function to start the game
 def play_game():

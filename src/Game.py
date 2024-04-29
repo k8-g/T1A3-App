@@ -5,6 +5,7 @@ from rich.console import Console
 from wonderwords import RandomWord
 import hangman_screens
 
+
 console = Console()
 
 # Class for Game objects
@@ -47,7 +48,6 @@ class Game:
     def line_break(self):
         print("---------------------------------------------------------")
 
-
     # Win game function
     def win_game(self):
         self._game_over = True
@@ -55,8 +55,6 @@ class Game:
         self.line_break()
         self._stats.add_win()
         
-
-
     # Lose game function
     def lose_game(self):
         self._game_over = True
@@ -93,8 +91,6 @@ class Game:
         print(hangman_screens.hangman_images [self._incorrect])
         print("\n")
 
-
-
     # Starts the game
     def start_game(self):
         self.draw_hangman() 
@@ -103,8 +99,6 @@ class Game:
         # Displays dashes for the length of the word
         print("_ "*len(self._hangman_word))
         
-
-
         # While game is playing
         while self._game_over == False:
             print(self._blanked_word)
