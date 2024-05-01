@@ -76,17 +76,18 @@ class Game:
             self._guesses += _guess
 
         if _guess not in self._hangman_word:
-            # Incorrect guess
+            # Incorrect guess; message displays & incorrect guess count goes up +1, then user can guess again if the incorrect count is under 6
             self._incorrect += 1
             print(f"Sorry, {_guess} isn't in this word.")
+            # If the incorrect count gets to 6, the game ends
             if self._incorrect == 6:
                 self.lose_game()
         else:
-            # Correct guess
+            # Correct guess; prints display message, Nothing else happens and user can guess again
             print(f"{Fore.green}Yay! You guessed correctly!{Style.reset}")   
         self.line_break()
 
-    # Tells when to draw what hangman gallows stage 
+    # Tells when to draw what hangman gallows stage by using the number corresponding to the hangman stage 0 (empty gallows) - 6 (completed hangman body)
     def draw_hangman(self):
         print(hangman_screens.hangman_images [self._incorrect])
         print("\n")

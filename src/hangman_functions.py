@@ -64,7 +64,9 @@ def display_stats():
 
 # Function to start the game
 def play_game():
+    # Clears the screen
     clear_screen()
+    # Loads the game & any stats if saved
     my_game = Game(stats)
     my_game.start_game()
     stats.save_stats()

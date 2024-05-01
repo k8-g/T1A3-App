@@ -4,7 +4,7 @@
 python3 -m venv .venv
 source .venv/bin/activate
 
-# Packets to be installed
+# Packages to be installed
 pip3 install pytest
 # pip3 install colored
 pip3 install wonderwords
