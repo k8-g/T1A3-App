@@ -365,7 +365,7 @@ The Rich package is used again to style the text, and the `clear screen` and `an
 ### Help page
 <details><summary>Screenshot of Hangman Help</summary><br>
 
-![View Stats](docs/Hangman%20help.png)
+![View Stats](docs/Hangman%20Help.png)
 
 </details><br>
 
