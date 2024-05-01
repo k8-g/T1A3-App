@@ -23,7 +23,7 @@
 - snake_case used for majority of code
 - Camel_case used for Classes
 - Comments capitilised with one space between # and comment
-- """ on new line at end (hangman_screens.py)
+- """ on new line at end (`hangman_screens.py`)
 
 ## R6. Develop a list of features that will be included in the application. 
 
@@ -62,12 +62,6 @@
 ___
 ### Main Menu: 
 
-<details><summary>Screeshot of main menu</summary><br>
-
-![Main Menu](docs/Main%20menu.png)
-
-</details>
-
 The main menu screen loads at the beginning of the program. It shows a 'Hangman' ACSII text image, a blinking 'WELCOME TO HANGMAN!' message, and lists the following options. The program waits for the user to input their selection.
 
     "Press 'Space' to start game"
@@ -76,9 +70,23 @@ The main menu screen loads at the beginning of the program. It shows a 'Hangman'
     "Press 'Q' to exit game"
     Select one of the above and hit 'Enter'.
 
-The main menu is created using a display menu function (create_menu in hangman_functions.py) and the user input menu function (display_intro in hangman.py). If the user inputs anything other than the above options, the program gives a warning message asking the user to "Select one of the above and hit 'Enter'." (see else: in display_intro in hangman.py).
+<details><summary>Screeshot of main menu</summary><br>
 
-If the user inputs their option in uppercase, there is an error handling code that converts their input into lowercase, so the program won't break and will continue as normal (see end of create_menu function in hangman_functions.py).
+![Main Menu](docs/Main%20menu.png)
+
+</details>
+<br>
+
+The main menu is created using a display menu function (`create_menu` in `hangman_functions.py`) and the user input menu function (`display_intro` in `hangman.py`). If the user inputs anything other than the above options, the program gives a warning message asking the user to "Please select one of the above and hit 'Enter'." (see else: in `display_intro` in `hangman.py`).
+
+<details><summary>Screeshot of "Please select one of the above" error handling message</summary><br>
+
+![Main Menu](docs/p)
+
+</details>
+<br>
+
+If the user inputs their option in uppercase, there is an error handling code that converts their input into lowercase, so the program won't break and will continue as normal (see end of `create_menu` function in `hangman_functions.py`).
 ___
 ### Playing the game:
 
@@ -92,9 +100,10 @@ feat. hangman_image_0
 
 </details><br>
 
-Two functions operate to start the game; play_game in hangman_functions.py & start_game in Game.py. The first clears the screen and loads the game (and any stats if there any saved), whilst the  second draws the empty gallows display (draw_hangman), generates the random word to be guessed (self._hangman_word = generate_word(self)) and replaces the letters in the words to be displayed as underscores with spaces beside them to seperate them. (print("_ "*len(self._hangman_word)))
+Two functions operate to start the game; `play_game` in `hangman_functions.py` & `start_game` in `Game.py`. The first clears the screen and loads the game (and any stats if there any saved), whilst the  second draws the empty gallows display (`draw_hangman`), generates the random word to be guessed (`self._hangman_word = self.generate_word()`)
+ and replaces the letters in the words to be displayed as underscores with spaces beside them to seperate them. (`print("_ "*len(self._hangman_word))`)
 
-The player then can input a letter followed by the 'Enter' key, and the game will let the player know if their guess is in the word or an incorrect guess. It does this by running a check_letters function which checks if the inputted letter is in the word. This loops through every letter in the word to see if it matches. 
+The player then can input a letter followed by the 'Enter' key, and the game will let the player know if their guess is in the word or an incorrect guess. It does this by running a `check_letters` function which checks if the inputted letter is in the word. This loops through every letter in the word to see if it matches. 
 
 If the player guesses a letter correctly, that letter is then converted from the corresponding underscore into the guessed letter in the displayed blanked word. A message will also be displayed telling the player that the letter they have guessed is correct. They then can guess again.
 
@@ -140,7 +149,7 @@ There is also a function that converts the user input into lowercase and stips a
 
 In between all these turns, a function is called from the OS to clear the screen.
 
-Once the player has guessed all the letters, a win_game function runs, telling the user 'Congratulations, you guessed it! It was "_____" and it adds your win to the wins stats count, which can be viewed on the 'View Stats' page, once you have played a game to completion.
+Once the player has guessed all the letters, a `win_game` function runs, telling the user 'Congratulations, you guessed it! It was "_____" and it adds your win to the wins stats count, which can be viewed on the 'View Stats' page, once you have played a game to completion.
 
 <details><summary>Screeshot of winning the game</summary><br>
 
