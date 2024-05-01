@@ -95,7 +95,7 @@ ___
 After the player presses 'Spacebar' + 'Enter', the game starts. A random word is generated using the [wonderwords package](https://pypi.org/project/wonderwords/), which is then displayed as a blanked out word, showing the hidden letters as underscores, for example, the word 'feline' would be displayed as '_ _ _ _ _ _'. An empty 'Hangman' gallows text image is displayed as well.
 
 <details><summary>Screeshot of start of game</summary><br>
-feat. hangman_image_0
+(This first hangman drawing displayed is hangman_image_0 from hangman_screens.py)
 
 ![Guess a letter](docs/Try%20guessing%20a%20letter:hangman_image_0.png)
 
@@ -105,18 +105,12 @@ feat. hangman_image_0
 Two functions operate to start the game; `play_game` in `hangman_functions.py` & `start_game` in `Game.py`. The first clears the screen and loads the game (and any stats if there any saved), whilst the  second draws the empty gallows display (`draw_hangman`), generates the random word to be guessed (`self._hangman_word = self.generate_word()`)
  and replaces the letters in the words to be displayed as underscores with spaces beside them to seperate them. (`print("_ "*len(self._hangman_word))`)
 
-The player then can input a letter followed by the 'Enter' key, and the game will let the player know if their guess is in the word or an incorrect guess. It does this by running a `check_letters` function which checks if the inputted letter is in the word. This loops through every letter in the word to see if it matches. 
+The player then can input a letter followed by the 'Enter' key, and the game will let the player know if their guess is in the word or an incorrect guess. It does this by running a `check_letters` function (in `Game.py`) which checks if the inputted letter is in the word.  
 
-If the player guesses a letter correctly, that letter is then converted from the corresponding underscore into the guessed letter in the displayed blanked word. A message will also be displayed telling the player that the letter they have guessed is correct. They then can guess again.
+It starts a loop that iterates over each letter in the `_hangman_word` which is the word that player needs to guess, and it compares each letter in the word with the letters you've already guessed (which is stored in a hidden `_guesses` list).
 
-<details><summary>Screeshot of correct guess</summary><br>
-feat. hangman_image_1
-
-![Yay! You guessed correctly!](docs/You%20guessed%20correctly:hangman_1.png)
-
-</details><br>
-
-If the player guesses incorrectly, a message displays saying that the letter guessed is not in the word and the 'Hangman' ASCII image will be updated to reflect the next stage of the Hanged man. A function will also add a count to the incorrect guesses count. 
+If the player guesses incorrectly (i.e. the letter is not in the hangman word), a message displays saying that the letter guessed is not in the word and the 'Hangman' ASCII image will be updated to reflect the next stage of the hanged man. A function will also add a count to the incorrect guesses count. 
+ 
 
 <details><summary>Screeshot of incorrect guess</summary><br>
 feat. hangman_image_2
@@ -125,7 +119,33 @@ feat. hangman_image_2
 
 </details><br>
 
-If they have guessed the letter before, a message is displayed letting the user know that they've already guessed that letter, and the game will treat that guess as a turn, penalising the user if it's incorrect. 
+If the player guesses a letter correctly, that letter is then converted from the corresponding underscore into the guessed letter in the displayed blanked word. A message will also be displayed telling the player that the letter they have guessed is correct. They then can guess again.
+
+
+<details><summary>Screeshot of correct guess</summary><br>
+feat. hangman_image_1
+
+![Yay! You guessed correctly!](docs/You%20guessed%20correctly:hangman_1.png)
+
+</details><br>
+
+Code block for incorrect & correct guess messages + incorrect count:
+
+    if _guess not in self._hangman_word:
+        self._incorrect += 1
+        print(f"{Fore.red}Sorry, {_guess} isn't in this word.{Style.reset}")
+        if self._incorrect == 6:
+        self.lose_game()
+    else:
+        print(f"{Fore.green}Yay! You guessed correctly!{Style.reset}")  
+
+ The game records the letters guessed to a local `_guess` file, so it "remembers" what the user has already guessed. This is used in the code for when the user inputs a letter that they've already inputted before.
+
+When this happens, a message is displayed letting the user know that they've already guessed that letter, and the game will treat that guess as a turn, penalising the user if it's incorrect. 
+
+The following code says if the user's guess is in the guess list, it'll print the you've already guessed message.
+
+    if _guess in self._guesses: print(f"{Fore.magenta}You've already guessed {_guess}.{Style.reset}")
 
 <details><summary>Screeshot of "You've already guessed {_guess}."</summary><br>
 feat. hangman_image_5
@@ -137,11 +157,11 @@ feat. hangman_image_5
 
 The player can continue guessing until either they have guessed all the hidden letters, or until the Hangman drawing is complete, which is 6 incorrect guesses count.
 
-A series of functions runs after every guess. First, it checks the letter if it's in the word with an outcome for True (correct) or False (incorrect). 
+There is also a two built-in Python string functions that converts the user input into lowercase and stips any accidental or excess spaces, so that the game will function as normal even if the input is uppercase or if the user inputs any spaces.
 
-If the guessed letter is in the word, it updates the display to reflect this, by updating the display message "Yay! You guessed correctly", as well as if it's incorrect, in which case it updates the hangman image as well as a display message "Sorry, {_guess} isn't in this word." (See last two screenshots)
+    user_guess = input ("Try guessing a letter.\n").lower().strip() 
 
-There is also a function that converts the user input into lowercase and stips any accidental or excess spaces, so that the game will function as normal even if the input is uppercase or if the user inputs any spaces. As well as a function that tells the user to only select one letter if they accidentally type more than one letter.
+While the game is not over (`while self._game_over == False:` in `start_game` function in `Game.py`), the game prints the blanked out word and asks for input and clears the screen of the previous messages once inputted. Then it checks if the input is one character length only (`if len(user_guess) == 1:`), which if it isn't, it prints an error handling message asking the user to only input one letter (because more than one character length isn't what we want).
 
 <details><summary>Screeshot of "Please only select one letter" error handling message</summary><br>
 
@@ -149,9 +169,32 @@ There is also a function that converts the user input into lowercase and stips a
 
 </details><br>
 
-In between all these turns, a function is called from the OS to clear the screen.
+ If the user input is '!', there is a function that ends the game.
 
-Once the player has guessed all the letters, a `win_game` function runs, telling the user 'Congratulations, you guessed it! It was "_____" and it adds your win to the wins stats count, which can be viewed on the 'View Stats' page, once you have played a game to completion.
+    if user_guess == "!":
+        self._game_over = True
+
+
+<details><summary>Screeshot of "Game Ended" message</summary><br>
+
+![Please only select one letter](docs/Game%20ended.png)
+
+</details><br>
+
+In between all these turns, a function is called from the OS to clear the screen. 
+
+    def clear_screen():
+        os.system("clear")
+
+Which is called using `clear screen()`.
+
+Once the player has guessed all the letters, a `win_game` function runs (see code below), which prints the win message and it adds your win to the wins stats count, which can be viewed on the 'View Stats' page, once you have played a game to completion.
+
+    def win_game(self):
+        self._game_over = True
+        print(f"{Fore.green}Congratulations, you guessed it! It was \"{self._hangman_word}\".{Style.reset}")
+        self.line_break()
+        self._stats.add_win()
 
 <details><summary>Screeshot of winning the game</summary><br>
 
