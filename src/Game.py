@@ -10,7 +10,7 @@ console = Console()
 
 # Class for Game objects
 class Game:
-    # Constructor
+    # Constructors
     def __init__(self, _stats=None):
         self._hangman_word = ""
         self._incorrect = 0
