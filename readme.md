@@ -77,7 +77,7 @@ The main menu screen loads at the beginning of the program. It shows a 'Hangman'
 </details>
 <br>
 
-The main menu is created using a display menu function (`create_menu` in `hangman_functions.py`) and the user input menu function (see `hangman.py`). 
+The main menu is created using a display menu function (See `create_menu` in `hangman_functions.py` to see the print messages in full) and the user input menu function (see `hangman.py`). 
 
     def create_menu():
         console.print("Press 'Space' to start game  |  Press 'S' to view     stats",justify="center") 
