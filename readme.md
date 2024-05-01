@@ -111,7 +111,6 @@ I created a while loop (shown below), which essentially says, "while the user's 
 ![Main Menu](docs/Please%20select%20one%20of%20the%20four%20options%20displayed.png)
 
 </details><br>
-
 ___
 ### Playing the game:
 
@@ -163,7 +162,17 @@ There are also two built-in Python string functions that converts the user input
 
     user_guess = input ("Try guessing a letter.\n").lower().strip() 
 
-It clears the screen of the previous messages once inputted. Then it checks if the input is one character length only (`if len(user_guess) == 1:`), which if it isn't, it prints an error handling message asking the user to only input one letter (because more than one character length isn't what we want).
+It clears the screen of the previous messages once inputted. Then it checks if the input is one character length only, which if it isn't, it prints an error handling message asking the user to only input one letter.
+
+    os.system("clear")
+    if len(user_guess) == 1:
+
+(because more than one character length isn't what we want).
+
+    else:
+        self.line_break()
+        print(f"{Fore.magenta}Please only select one letter.{Style.reset}")
+        self.line_break()
 
 <details><summary>Screenshot of "Please only select one letter" error handling message</summary><br>
 
