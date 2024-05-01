@@ -79,7 +79,31 @@ The main menu screen loads at the beginning of the program. It shows a 'Hangman'
 
 The main menu is created using a display menu function (`create_menu` in `hangman_functions.py`) and the user input menu function (`display_intro` in `hangman.py`). 
 
-I created a while loop, which essentially says, "while the user's selection isn't equal to 'q'; if it's space, play the game. If it's 's', display the stats, if it's '?', display the help page, if it is 'q', it prints bye! and quits the program. Else/otherwise, if the user inputs anything other than the above options, the program gives an error handling warning message asking the user to "Please select one of the four options displayed" and hit 'Enter'." (see else: in `display_intro` in `hangman.py`).
+    def create_menu():
+        console.print("Press 'Space' to start game  |  Press 'S' to view     stats",justify="center") 
+        console.print("Press '?' to display help   |  Press 'Q' to exit game",justify="center") 
+ 
+        menu_selection = input("Select one of the above and hit 'Enter'.")
+        return menu_selection.lower()
+
+
+I created a while loop (shown below), which essentially says, "while the user's selection isn't equal to 'q'; if it's space, play the game. If it's 's', display the stats, if it's '?', display the help page, if it is 'q', it prints bye! and quits the program. Else/otherwise, if the user inputs anything other than the above options, the program gives an error handling warning message asking the user to "Please select one of the four options displayed" and hit 'Enter'." (see else: in `hangman.py`).(Please see actual code for comments as well)
+
+    while user_selection != "q":
+        user_selection = create_menu()
+        if (user_selection == " "):
+            print("Start game!")
+            play_game()
+        elif (user_selection == "s"):
+            display_stats()
+        elif (user_selection == "?"):
+            display_help()
+        elif (user_selection == "q"):
+            print("Bye!")
+        else:
+            display_intro()
+            print(f"{Fore.magenta}Please select one of the four options displayed.{Style.reset}")
+    print("Good Game!")
 
 <details><summary>Screeshot of "Please select one of the four options displayed" error handling message</summary><br>
 
