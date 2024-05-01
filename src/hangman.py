@@ -27,6 +27,6 @@ while user_selection != "q":
     # If user inputs anything other than the above options, this warning message comes up
     else:
         display_intro()
-        print(f"{Fore.magenta}Please pick one of the four options displayed.{Style.reset}")
+        print(f"{Fore.magenta}Please select one of the four options displayed.{Style.reset}")
 # This message displays when the user quits the application
 print("Good Game!")
