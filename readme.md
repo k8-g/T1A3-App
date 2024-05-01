@@ -116,11 +116,11 @@ ___
 
 After the player presses 'Spacebar' + 'Enter', the game starts. A random word is generated using the [wonderwords package](https://pypi.org/project/wonderwords/), which is then displayed as a blanked out word, showing the hidden letters as underscores, for example, the word 'feline' would be displayed as '_ _ _ _ _ _'. An empty 'Hangman' gallows text image is displayed as well.
 
+
 <details><summary>Screenshot of start of game</summary><br>
 (This first hangman drawing displayed is hangman_image_0 from hangman_screens.py)
 
 ![Guess a letter](docs/Try%20guessing%20a%20letter:hangman_image_0.png)
-
 
 </details><br>
 
@@ -158,7 +158,7 @@ The first (above) clears the screen and loads the game (and any stats if there a
 
 While the game is not over (`while self._game_over == False:` in `start_game` function in `Game.py`), the game prints the blanked out word and asks for input. 
 
-There are also two built-in Python string functions that converts the user input into lowercase and stips any accidental or excess spaces, so that the game will function as normal even if the input is uppercase or if the user inputs any spaces. 
+There are also two built-in Python string functions that converts the user input into lowercase and strips any accidental or excess spaces, so that the game will function as normal even if the input is uppercase or if the user inputs any spaces. 
 
     user_guess = input ("Try guessing a letter.\n").lower().strip() 
 
@@ -200,9 +200,9 @@ The user can exit the game at any point by pressing '!' + 'Enter'. Exiting the g
 
 Else turn continues as normal.
 
-When player has input a letter followed by the 'Enter' key, the game will let the player know if their guess is in the word or an incorrect guess. It does this by running a `check_letters` function (in `Game.py`, see code snippet below) which checks if the inputted letter is in the word.  
+When player has inputted a letter followed by the 'Enter' key, the game will let the player know if their guess is in the word or an incorrect guess. It does this by running a `check_letters` function (in `Game.py`, see code snippet below) which checks if the inputted letter is in the word.  
 
-It starts a loop that iterates over each letter in the `_hangman_word` which is the word that player needs to guess, and it compares each letter in the word with the letters you've already guessed (which is stored in a hidden `_guesses` list).
+It starts a loop that iterates over each letter in the `_hangman_word` which is the word that player needs to guess, and it compares the letter with the letters you've already guessed (which is stored in a hidden `_guesses` list).
 
     def check_letters(self):
         word_guessed = True
@@ -231,7 +231,7 @@ feat. hangman_image_2
 
 </details><br>
 
-The `check_user_guess` function below will also add a count to the incorrect guesses count. (see below) 
+The `check_user_guess` function will also add a count to the incorrect guesses count. 
 
 Code for incorrect & correct guess messages + incorrect count:
 (from `check_user_guess` function in `Game.py`)
@@ -274,7 +274,7 @@ feat. hangman_image_5
 
 Else, if it hasn't been guessed yet, it adds the guess to the guesses list.
 
-The player can continue guessing until have guessed all the hidden letters or until the Hangman drawing is complete, which is 6 incorrect guesses count. This is achieved by the `check_letters` and `check_user_guess` functions looping until either game over = true or game over = false.
+The player can continue guessing until they have guessed all the hidden letters or until the Hangman drawing is complete, which is 6 incorrect guesses count. This is achieved by the `check_letters` and `check_user_guess` functions looping until either game over = true or game over = false.
 
 In between all these turns, a function is called from the OS to clear the screen. 
 
@@ -297,7 +297,7 @@ Once the player has guessed all the letters, a `win_game` function runs (see cod
 
 </details><br>
 
-If the user fails to guess before the 'Hangman' drawing is completed, the game ends. The `check_user_guess` loop checks if the game is over by checking the incorrect guesses count, which once it reaches 6 (which is also the amount of hangman drawing stages), it ends the game, prints a "GAME OVER!" message, and a terminal bell/screen flash occurs (`print ("\a")`). It also saves your game as a loss count, which can then be viewed in the 'View Stats' page.(`        self._stats.add_loss()`)
+If the user fails to guess before the 'Hangman' drawing is completed, the game ends. The `check_user_guess` loop checks if the game is over by checking the incorrect guesses count, which once it reaches 6 (which is also the amount of hangman drawing stages), it ends the game, prints a "GAME OVER!" message, and a terminal bell/screen flash occurs (`print ("\a")`). It also saves your game as a loss count, which can then be viewed in the 'View Stats' page.(`self._stats.add_loss()`)
 
      def lose_game(self):
         self._game_over = True
