@@ -29,7 +29,7 @@ class Game:
     def get_blanked_word(self):
         return self._blanked_word
 
-# Goes through each letter and checks if the guessed letter is in word then displays letter if correct, displays blank if incorrect
+    # Goes through each letter and checks if the guessed letter is in word then displays letter if correct, displays blank if incorrect
     def check_letters(self):
         word_guessed = True
         self._blanked_word = ""
