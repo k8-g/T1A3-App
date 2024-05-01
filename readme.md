@@ -363,6 +363,7 @@ Pressing 'S' + 'Enter' takes you to a 'View Stats' page, where the user is able 
 The Rich package is used again to style the text, and the `clear screen` and `any_key_return_to_menu` functions are called upon.
 
 ### Help page
+
 <details><summary>Screenshot of Hangman Help</summary><br>
 
 ![Help page](docs/Hangman%20Help.png)
