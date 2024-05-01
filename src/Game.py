@@ -83,7 +83,7 @@ class Game:
                 self.lose_game()
         else:
             # Correct guess
-            print(f"{Fore.green}Yay! You guessed correct!{Style.reset}")   
+            print(f"{Fore.green}Yay! You guessed correctly!{Style.reset}")   
         self.line_break()
 
     # Tells when to draw what hangman gallows stage 
