@@ -101,15 +101,21 @@ class Game:
         print("_ "*len(self._hangman_word))
         
         # While game is playing
+        # While game is not over/ while game over = false
         while self._game_over == False:
+            # Prints blanked out word
             print(self._blanked_word)
-            # Converts input into lowercase and strips any spaces inputted
-            user_guess = input ("Try guessing a letter.\n").lower().strip() 
+            # Ask for input and converts input into lowercase and strips any spaces inputted
+            user_guess = input ("Try guessing a letter.\n").lower().strip()
+            # Clears screen
             os.system("clear")
+            # if the length of the user's input is one character
             if len(user_guess) == 1:
                 # Quits the game if user types '!'
                 if user_guess == "!":
+                    # Tells game to end/changes game over = false to true
                     self._game_over = True
+                    # Prints game ended message
                     console.print("[bold] GAME ENDED [/bold]")
                 else:
                     # Otherwise turn continues as normal
