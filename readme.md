@@ -113,6 +113,7 @@ I created a while loop (shown below), which essentially says, "while the user's 
 
 
 If the user inputs their option in uppercase, there is an error handling code that converts their input into lowercase, so the program won't break and will continue as normal (`return menu_selection.lower()` in `create_menu` function in `hangman_functions.py`).
+<br>
 ___
 ### Playing the game:
 
