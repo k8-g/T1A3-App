@@ -1,0 +1,9 @@
+System Requirements:
+- MacOS/Linux/Windows
+- At least Python 3.9 & above [I'm using Python 3.12.2]
+- Program must be run in standard terminal window at least 80 characters wide for optimal viewing.
+
+Packages required:
+Colored 2.2.4
+wonderwords 2.2.0
+Rich [requires Python 3.7.0 and above]
