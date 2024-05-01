@@ -171,16 +171,23 @@ It clears the screen of the previous messages once inputted. Then it checks if t
 
 </details><br>
 
- If the user input is '!', there is a function that ends the game.
+The user can exit the game at any point by pressing '!' + 'Enter'. Exiting the game doesn't save anything to the 'View Stats' page and the player can choose again from the main menu.
+
+ Therefore if the user input is '!', there is a function that ends the game (from the `start_game` function in `Game.py`), prompting the 'GAME ENDED' message.
 
     if user_guess == "!":
         self._game_over = True
+        console.print("[bold] GAME ENDED [/bold]")
+
 
 <details><summary>Screenshot of "Game Ended" message</summary><br>
 
 ![Please only select one letter](docs/Game%20ended.png)
 
 </details><br>
+
+    else:
+        self.check_user_guess(user_guess) 
 
 Else turn continues as normal.
 
@@ -208,8 +215,6 @@ If the player guesses incorrectly (i.e. the letter is not in the hangman word), 
         word_guessed = False
 
 
- 
-
 <details><summary>Screenshot of incorrect guess</summary><br>
 feat. hangman_image_2
 
@@ -217,10 +222,10 @@ feat. hangman_image_2
 
 </details><br>
 
-A function will also add a count to the incorrect guesses count. (see below) 
+The `check_user_guess` function below will also add a count to the incorrect guesses count. (see below) 
 
 Code for incorrect & correct guess messages + incorrect count:
-(from `check_user_guess` function in `Game.py)
+(from `check_user_guess` function in `Game.py`)
 
     if _guess not in self._hangman_word:
         self._incorrect += 1
@@ -230,8 +235,7 @@ Code for incorrect & correct guess messages + incorrect count:
     else:
         print(f"{Fore.green}Yay! You guessed correctly!{Style.reset}") 
 
-If the player guesses a letter correctly, that letter is then converted from the corresponding underscore into the guessed letter in the displayed blanked word, as per `check_letter` function. A message will also be displayed telling the player that the letter they have guessed is correct, as per `check_user_guess`. They then can guess again until they either win or lose the game.
-
+If the player guesses a letter correctly, that letter is then converted from the corresponding underscore into the guessed letter in the displayed blanked word, as per `check_letter` function. A message will also be displayed telling the player that the letter they have guessed is correct, as per `check_user_guess`. Then then can guess again.
 
 <details><summary>Screenshot of correct guess</summary><br>
 feat. hangman_image_1
@@ -240,16 +244,18 @@ feat. hangman_image_1
 
 </details><br>
 
- 
+The game records the letters guessed to a local `_guess` file, so it "remembers" what the user has already guessed. This is used in the code for when the user inputs a letter that they've already inputted before. 
 
-The game records the letters guessed to a local `_guess` file, so it "remembers" what the user has already guessed. This is used in the code for when the user inputs a letter that they've already inputted before.
+"If the letter guessed (`_guess`) is in the `_guesses` file, print the following message:"
 
-When this happens, a message is displayed letting the user know that they've already guessed that letter, and the game will treat that guess as a turn, penalising the user if it's incorrect. 
+    if _guess in self._guesses: 
+        print(f"{Fore.magenta}You've already guessed {_guess}.{Style.reset}")
+    else: 
+        self._guesses += _guess
 
-The following code says if the user's guess is in the guess list, it'll print the you've already guessed message.
+When this happens, a message is displayed letting the user know that they've already guessed that letter, and the game will treat that guess as a turn, penalising the user if it's incorrect.  
 
-    if _guess in self._guesses: print(f"{Fore.magenta}You've already guessed {_guess}.{Style.reset}")
-
+  
 <details><summary>Screenshot of "You've already guessed {_guess}."</summary><br>
 feat. hangman_image_5
 
@@ -257,10 +263,9 @@ feat. hangman_image_5
 
 </details><br>
 
+Else, if it hasn't been guessed yet, it adds the guess to the guesses list.
 
-The player can continue guessing until either they have guessed all the hidden letters, or until the Hangman drawing is complete, which is 6 incorrect guesses count.
-
-
+The player can continue guessing until have guessed all the hidden letters or until the Hangman drawing is complete, which is 6 incorrect guesses count. This is achieved by the `check_letters` and `check_user_guess` functions looping until either game over = true or game over = false.
 
 In between all these turns, a function is called from the OS to clear the screen. 
 
@@ -283,7 +288,15 @@ Once the player has guessed all the letters, a `win_game` function runs (see cod
 
 </details><br>
 
-If the user fails to guess before the 'Hangman' drawing is completed, the game ends. There is a function that checks if the game is over by checking the incorrect guesses count, which once it reaches 6 (which is also the amount of hangman drawing stages), it ends the game, prints a "GAME OVER!" message, and a terminal bell/screen flash occurs. It also saves your game as a loss count, which can then be viewed in the 'View Stats' page.
+If the user fails to guess before the 'Hangman' drawing is completed, the game ends. The `check_user_guess` loop checks if the game is over by checking the incorrect guesses count, which once it reaches 6 (which is also the amount of hangman drawing stages), it ends the game, prints a "GAME OVER!" message, and a terminal bell/screen flash occurs (`print ("\a")`). It also saves your game as a loss count, which can then be viewed in the 'View Stats' page.(`        self._stats.add_loss()`)
+
+     def lose_game(self):
+        self._game_over = True
+        self.line_break()
+        print(f"{Fore.cyan}GAME OVER!{Style.reset}")
+        print("\a")
+        print(f"{Fore.red}Sorry, you lost. The word was \"{self._hangman_word}\".{Style.reset}")
+        self._stats.add_loss()
 
 <details><summary>Screenshot of losing the game</summary><br>
 feat. hangman_image_6
@@ -292,7 +305,35 @@ feat. hangman_image_6
 
 </details><br>
 
-The user can exit the game at any point by pressing '!' + 'Enter'. Exiting the game doesn't save anything to the 'View Stats' page and the player can choose again from the main menu.
+Other functions worth mentioning:
+The `draw_hangman` function (in `Game.py`):
+
+    def draw_hangman(self):
+        print(hangman_screens.hangman_images [self._incorrect])
+        print("\n")
+
+Print line break function, for sectioning the messages (in `Game.py`):
+
+    def line_break(self):
+        print("---------------------------------------------------------")
+
+The `any_key_to_return_to_menu` function (in `Game.py`):
+
+    def any_key_return_to_menu():
+        user_input = input("Press any key + 'Enter' or 'Enter' to return to main menu.")
+        clear_screen()
+        display_intro()
+
+It waits for the user to press a key to acknowledge they've read the page. This is used for exiting from the 'View Stats' and 'Hangman Help' page back to the main menu. It then clears the screen and prints the intro again.
+
+The `display_intro` function:
+
+    def display_intro():
+        clear_screen()
+        console.print(hangman_screens.intro_image)
+        console.print("    [bold cyan]WELCOME TO HANGMAN![/bold cyan]", style="blink", justify="center")
+
+This is used at the start and whenever the player goes back to the main menu. It uses the Rich package to make the welcome message blink, as well make it bold and cyan coloured.
 
 ### View Stats
 <details><summary>Screenshot of view stats</summary><br>
@@ -301,9 +342,16 @@ The user can exit the game at any point by pressing '!' + 'Enter'. Exiting the g
 
 </details><br>
 
-Pressing 'S' + 'Enter' takes you to a 'View Stats' page, where the user is able to see the wins and losses of every time they've played. The outcome of the game is saved after every game via file handling and is viewable in the 'View Stats' page. 
+Pressing 'S' + 'Enter' takes you to a 'View Stats' page, where the user is able to see the wins and losses of every time they've played. The outcome of the game is saved after every game via file handling and is viewable in the 'View Stats' page. If the player exits the program and reruns the program, they can see the previous stats in the 'View Stats' page.
 
-If the player exits the program and reruns the program, they can see the previous stats in the 'View Stats' page.
+    def display_stats():
+        clear_screen()
+        console.print("[bold cyan]   Stats[/bold cyan]")
+        console.print("[bold green]Wins[/bold green] | [bold red]Losses[/bold red]")
+        print(f"{stats.get_wins()}    | {stats.get_losses()} \n")
+        any_key_return_to_menu()
+
+The Rich package is used again to style the text, and the `clear screen` and `any_key_return_to_menu` functions are called upon.
 
 ### Help page
 <details><summary>Screenshot of Hangman Help</summary><br>
@@ -314,7 +362,17 @@ If the player exits the program and reruns the program, they can see the previou
 
 Pressing '?' + 'Enter' takes the user to a help display page, where they can find a basic how-to-play the game explaination (HELP.md file).
 
+    def display_help():
+        clear_screen()
+        with open("HELP.md") as readme:
+            markdown = Markdown(readme.read())
+        console.print(markdown)
+        any_key_return_to_menu()
+
+The Rich package is used to load a markdown file as well as to style that markdown file, and the `clear screen` and `any_key_return_to_menu` functions are called upon.
+
 ### Quit Game
+
 <details><summary>Screenshot of quit game</summary><br>
 
 ![View Stats](docs/Quit%20Game:Bye.png)
@@ -322,6 +380,8 @@ Pressing '?' + 'Enter' takes the user to a help display page, where they can fin
 </details><br>
 
 Pressing 'Q' + 'Enter' quits the program altogether.
+
+(As per the while loop `hangman.py`.)
 
 ## R7. Implementation Plan
 [Trello Board](https://trello.com/invite/b/2KkDIwnm/ATTI8c7dcc244337075ee0527f62c31d103895FB879E/t1a3-terminal-application-assignment-checklist)
