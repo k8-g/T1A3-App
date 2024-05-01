@@ -77,16 +77,18 @@ The main menu screen loads at the beginning of the program. It shows a 'Hangman'
 </details>
 <br>
 
-The main menu is created using a display menu function (`create_menu` in `hangman_functions.py`) and the user input menu function (`display_intro` in `hangman.py`). If the user inputs anything other than the above options, the program gives a warning message asking the user to "Please select one of the above and hit 'Enter'." (see else: in `display_intro` in `hangman.py`).
+The main menu is created using a display menu function (`create_menu` in `hangman_functions.py`) and the user input menu function (`display_intro` in `hangman.py`). 
 
-<details><summary>Screeshot of "Please select one of the above" error handling message</summary><br>
+I created a while loop, which essentially says, "while the user's selection isn't equal to 'q'; if it's space, play the game. If it's 's', display the stats, if it's '?', display the help page, if it is 'q', it prints bye! and quits the program. Else/otherwise, if the user inputs anything other than the above options, the program gives an error handling warning message asking the user to "Please select one of the four options displayed" and hit 'Enter'." (see else: in `display_intro` in `hangman.py`).
 
-![Main Menu](docs/p)
+<details><summary>Screeshot of "Please select one of the four options displayed" error handling message</summary><br>
 
-</details>
-<br>
+![Main Menu](docs/Please%20select%20one%20of%20the%20four%20options%20displayed.png)
 
-If the user inputs their option in uppercase, there is an error handling code that converts their input into lowercase, so the program won't break and will continue as normal (see end of `create_menu` function in `hangman_functions.py`).
+</details><br>
+
+
+If the user inputs their option in uppercase, there is an error handling code that converts their input into lowercase, so the program won't break and will continue as normal (`return menu_selection.lower()` in `create_menu` function in `hangman_functions.py`).
 ___
 ### Playing the game:
 
