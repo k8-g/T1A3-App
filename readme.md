@@ -88,8 +88,7 @@ The main menu is created using a display menu function (`create_menu` in `hangma
 
 If the user inputs their option in uppercase, there is an error handling code that converts their input into lowercase, so the program won't break and will continue as normal (`return menu_selection.lower()` in `create_menu` function in `hangman_functions.py`).
 
-
-I created a while loop (shown below), which essentially says, "while the user's selection isn't equal to 'q'; if it's space, play the game. If it's 's', display the stats, if it's '?', display the help page, if it is 'q', it prints 'bye!' and quits the program. Else/otherwise, if the user inputs anything other than the above options, the program gives an error handling warning message asking the user to "Please select one of the four options displayed" and hit 'Enter'." (Please see actual code for comments as well).
+I created a while loop (shown below), which essentially says, "while the user's selection isn't equal to 'q'; if it's space, play the game. If it's 's', display the stats, if it's '?', display the help page, if it is 'q', it print 'bye!' and quit the program. Else/otherwise, if the user inputs anything other than the above options, the program gives an error handling warning message asking the user to "Please select one of the four options displayed" and hit 'Enter'." (Please see actual code for comments as well).
 
     while user_selection != "q":
         user_selection = create_menu()
@@ -113,7 +112,6 @@ I created a while loop (shown below), which essentially says, "while the user's 
 
 </details><br>
 
-
 ___
 ### Playing the game:
 
@@ -127,7 +125,7 @@ After the player presses 'Spacebar' + 'Enter', the game starts. A random word is
 
 </details><br>
 
-Two functions operate to start the game; `play_game` in `hangman_functions.py` (shown below) & `start_game` in `Game.py`. 
+Two functions operate to start the game; `play_game` in `hangman_functions.py` (shown below) & `start_game` in `Game.py` (next code block below). 
 
     def play_game():
         clear_screen()
@@ -135,7 +133,7 @@ Two functions operate to start the game; `play_game` in `hangman_functions.py` (
         my_game.start_game()
         stats.save_stats()
 
-The first clears the screen and loads the game (and any stats if there any saved), whilst the second (shown below) draws the empty gallows display (`draw_hangman`), generates the random word to be guessed (`self._hangman_word = self.generate_word()`) and replaces the letters in the words to be displayed as underscores with spaces beside them to seperate them. (`print("_ "*len(self._hangman_word))`)
+The first (above) clears the screen and loads the game (and any stats if there any saved), whilst the second (shown below) draws the empty gallows display (`draw_hangman`), generates the random word to be guessed (`self._hangman_word = self.generate_word()`) and replaces the letters in the words to be displayed as underscores with spaces beside them to seperate them. (`print("_ "*len(self._hangman_word))`)
 
     def start_game(self):
             self.draw_hangman() 
@@ -203,7 +201,13 @@ It starts a loop that iterates over each letter in the `_hangman_word` which is 
         if word_guessed == True:
             self.win_game()
 
-If the player guesses incorrectly (i.e. the letter is not in the hangman word), a message displays saying that the letter guessed is not in the word and the 'Hangman' ASCII image will be updated to reflect the next stage of the hanged man. A function will also add a count to the incorrect guesses count. 
+If the player guesses incorrectly (i.e. the letter is not in the hangman word), a message displays saying that the letter guessed is not in the word and the 'Hangman' ASCII image will be updated to reflect the next stage of the hanged man. After every guess, the game checks if there is still an underscore, as this will tell it that the game can't be over yet, as there are still letters to be guessed. 
+
+    else:
+        self._blanked_word += "_"
+        word_guessed = False
+
+
  
 
 <details><summary>Screenshot of incorrect guess</summary><br>
@@ -213,7 +217,20 @@ feat. hangman_image_2
 
 </details><br>
 
-If the player guesses a letter correctly, that letter is then converted from the corresponding underscore into the guessed letter in the displayed blanked word. A message will also be displayed telling the player that the letter they have guessed is correct. They then can guess again.
+A function will also add a count to the incorrect guesses count. (see below) 
+
+Code for incorrect & correct guess messages + incorrect count:
+(from `check_user_guess` function in `Game.py)
+
+    if _guess not in self._hangman_word:
+        self._incorrect += 1
+        print(f"{Fore.red}Sorry, {_guess} isn't in this word.{Style.reset}")
+        if self._incorrect == 6:
+        self.lose_game()
+    else:
+        print(f"{Fore.green}Yay! You guessed correctly!{Style.reset}") 
+
+If the player guesses a letter correctly, that letter is then converted from the corresponding underscore into the guessed letter in the displayed blanked word, as per `check_letter` function. A message will also be displayed telling the player that the letter they have guessed is correct, as per `check_user_guess`. They then can guess again until they either win or lose the game.
 
 
 <details><summary>Screenshot of correct guess</summary><br>
@@ -223,15 +240,7 @@ feat. hangman_image_1
 
 </details><br>
 
-Code block for incorrect & correct guess messages + incorrect count:
-
-    if _guess not in self._hangman_word:
-        self._incorrect += 1
-        print(f"{Fore.red}Sorry, {_guess} isn't in this word.{Style.reset}")
-        if self._incorrect == 6:
-        self.lose_game()
-    else:
-        print(f"{Fore.green}Yay! You guessed correctly!{Style.reset}")  
+ 
 
 The game records the letters guessed to a local `_guess` file, so it "remembers" what the user has already guessed. This is used in the code for when the user inputs a letter that they've already inputted before.
 
