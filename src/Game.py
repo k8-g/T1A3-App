@@ -117,7 +117,7 @@ class Game:
             else:
                 # If user inputs more than one character, this warning comes up
                 self.line_break()
-                print("Please only select one letter.")
+                print(f"{Fore.magenta}Please only select one letter.{Style.reset}")
                 self.line_break()
             self.check_letters()
             self.draw_hangman()
