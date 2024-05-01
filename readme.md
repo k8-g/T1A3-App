@@ -379,7 +379,7 @@ Pressing '?' + 'Enter' takes the user to a help display page, where they can fin
         console.print(markdown)
         any_key_return_to_menu()
 
-The Rich package is used to load a markdown file as well as to style that markdown file, and the `clear screen` and `any_key_return_to_menu` functions are called upon.
+The Rich package is used to load the markdown file as well as to style that markdown file, and the `clear screen` and `any_key_return_to_menu` functions are called upon.
 
 ### Quit Game
 
