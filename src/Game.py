@@ -78,7 +78,7 @@ class Game:
         if _guess not in self._hangman_word:
             # Incorrect guess; message displays & incorrect guess count goes up +1, then user can guess again if the incorrect count is under 6
             self._incorrect += 1
-            print(f"Sorry, {_guess} isn't in this word.")
+            print(f"{Fore.red}Sorry, {_guess} isn't in this word.{Style.reset}")
             # If the incorrect count gets to 6, the game ends
             if self._incorrect == 6:
                 self.lose_game()
