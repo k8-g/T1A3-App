@@ -14,9 +14,31 @@
 
 ## To run application:
 - Open terminal
-- 
-- Run run.sh command
+- Make sure run.sh is executable: `chmod +x run.sh`
+- Run `run.sh` command
 ----------------
+
+The run.sh file has everything required to run this program, including checking what version of Python you have, creating a virtual environment, & installing packages/dependencies.
+
+    #!/bin/bash
+
+    # Make the scripts executable
+    chmod +x ./check_python.sh
+    chmod +x ./create_venv.sh
+    chmod +x ./install_packages.sh
+    # Run the check python script
+    ./check_python.sh
+
+    # Check these are installed before running
+    ./create_venv.sh
+
+    # Packages to be installed
+    ./install_packages.sh
+
+    # Runs the program
+    python3 hangman.py
+
+----
 ## How to use Hangman application:
 
 Select one of the following options from the main menu and press 'Enter'.
