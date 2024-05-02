@@ -78,7 +78,7 @@ The main menu screen loads at the beginning of the program. It shows a 'Hangman'
 
 <details><summary>Screenshot of main menu</summary><br>
 
-![Main Menu](docs/Main%20menu.png)
+![Main Menu](docs/Screenshots/Main%20menu.png)
 
 </details>
 <br>
@@ -114,7 +114,7 @@ I created a while loop (shown below), which essentially says, "while the user's 
 
 <details><summary>Screenshot of "Please select one of the four options displayed" error handling message</summary><br>
 
-![Please select one of the four options](docs/Please%20select%20one%20of%20the%20four%20options%20displayed.png)
+![Please select one of the four options](docs/Screenshots/Please%20select%20one%20of%20the%20four%20options%20displayed.png)
 
 </details><br>
 ___
@@ -126,7 +126,7 @@ After the player presses 'Spacebar' + 'Enter', the game starts. A random word is
 <details><summary>Screenshot of start of game</summary><br>
 (This first hangman drawing displayed is hangman_image_0 from hangman_screens.py)
 
-![Guess a letter](docs/Try%20guessing%20a%20letter:hangman_image_0.png)
+![Guess a letter](docs/Screenshots/Try%20guessing%20a%20letter:hangman_image_0.png)
 
 </details><br>
 
@@ -182,7 +182,7 @@ It clears the screen of the previous messages once inputted. Then it checks if t
 
 <details><summary>Screenshot of "Please only select one letter" error handling message</summary><br>
 
-![Please only select one letter](docs/Please%20only%20select%20one%20letter.png)
+![Please only select one letter](docs/Screenshots/Please%20only%20select%20one%20letter.png)
 
 </details><br>
 
@@ -197,7 +197,7 @@ The user can exit the game at any point by pressing '!' + 'Enter'. Exiting the g
 
 <details><summary>Screenshot of "Game Ended" message</summary><br>
 
-![Game Ended](docs/Game%20ended.png)
+![Game Ended](docs/Screenshots/Game%20ended.png)
 
 </details><br>
 
@@ -234,7 +234,7 @@ If the player guesses incorrectly (i.e. the letter is not in the hangman word), 
 <details><summary>Screenshot of incorrect guess</summary><br>
 feat. hangman_image_2
 
-![Sorry, letter isn't in word](docs/Sorry,%20e%20isn't%20in%20this%20word:hangman_image_2.png)
+![Sorry, letter isn't in word](docs/Screenshots/Sorry,%20e%20isn't%20in%20this%20word:hangman_image_2.png)
 
 </details><br>
 
@@ -256,7 +256,7 @@ If the player guesses a letter correctly, that letter is then converted from the
 <details><summary>Screenshot of correct guess</summary><br>
 feat. hangman_image_1
 
-![Yay! You guessed correctly!](docs/You%20guessed%20correctly:hangman_1.png)
+![Yay! You guessed correctly!](docs/Screenshots/You%20guessed%20correctly:hangman_1.png)
 
 </details><br>
 
@@ -275,7 +275,7 @@ When this happens, a message is displayed letting the user know that they've alr
 <details><summary>Screenshot of "You've already guessed {_guess}."</summary><br>
 feat. hangman_image_5
 
-![Sorry, you've already guessed](docs/You've%20already%20guessed%20t:hangman_image_5.png)
+![Sorry, you've already guessed](docs/Screenshots/You've%20already%20guessed%20t:hangman_image_5.png)
 
 </details><br>
 
@@ -300,7 +300,7 @@ Once the player has guessed all the letters, a `win_game` function runs (see cod
 
 <details><summary>Screenshot of winning the game</summary><br>
 
-![Congratulations](docs/Congratulations.png)
+![Congratulations](docs/Screenshots/Congratulations.png)
 
 </details><br>
 
@@ -317,7 +317,7 @@ If the user fails to guess before the 'Hangman' drawing is completed, the game e
 <details><summary>Screenshot of losing the game</summary><br>
 feat. hangman_image_6
 
-![Sorry, you lost](docs/Sorry,%20you%20lost:hangman_image_6.png)
+![Sorry, you lost](docs/Screenshots/Sorry,%20you%20lost:hangman_image_6.png)
 
 </details><br>
 
@@ -354,7 +354,7 @@ This is used at the start and whenever the player goes back to the main menu. It
 ### View Stats
 <details><summary>Screenshot of view stats</summary><br>
 
-![View Stats](docs/View%20stats.png)
+![View Stats](docs/Screenshots/View%20stats.png)
 
 </details><br>
 
@@ -373,7 +373,7 @@ The Rich package is used again to style the text, and the `clear screen` and `an
 
 <details><summary>Screenshot of Hangman Help</summary><br>
 
-![Help page](docs/Hangman%20Help.png)
+![Help page](docs/Screenshots/Hangman%20Help.png)
 
 </details><br>
 
@@ -392,7 +392,7 @@ The Rich package is used to load the markdown file as well as to style that mark
 
 <details><summary>Screenshot of quit game</summary><br>
 
-![Quit Game](docs/Quit%20Game:Bye.png)
+![Quit Game](docs/Screenshots/Quit%20Game:Bye.png)
 
 </details><br>
 
@@ -432,40 +432,40 @@ See [Help Documentation.md](docs/Help%20Documentation.md) for how to install and
 ## Screenshots (not under > links):
 
 Main Menu
-![Main Menu](docs/Main%20menu.png)
+![Main Menu](docs/Screenshots/Main%20menu.png)
 
 "Please select one of the four options displayed."
-![Please select one of the four options](docs/Please%20select%20one%20of%20the%20four%20options%20displayed.png)
+![Please select one of the four options](docs/Screenshots/Please%20select%20one%20of%20the%20four%20options%20displayed.png)
 
 "Try guessing a letter."
-![Guess a letter](docs/Try%20guessing%20a%20letter:hangman_image_0.png)
+![Guess a letter](docs/Screenshots/Try%20guessing%20a%20letter:hangman_image_0.png)
 
 "Please only select one letter."
-![Please only select one letter](docs/Please%20only%20select%20one%20letter.png)
+![Please only select one letter](docs/Screenshots/Please%20only%20select%20one%20letter.png)
 
 "GAME ENDED"
-![Game Ended](docs/Game%20ended.png)
+![Game Ended](docs/Screenshots/Game%20ended.png)
 
 "Sorry, ' ' isn't in word."
-![Sorry, letter isn't in word](docs/Sorry,%20e%20isn't%20in%20this%20word:hangman_image_2.png)
+![Sorry, letter isn't in word](docs/Screenshots/Sorry,%20e%20isn't%20in%20this%20word:hangman_image_2.png)
 
 "Yay! You guessed correctly!"
-![Yay! You guessed correctly!](docs/You%20guessed%20correctly:hangman_1.png)
+![Yay! You guessed correctly!](docs/Screenshots/You%20guessed%20correctly:hangman_1.png)
 
 "Sorry, you've already guessed ' '."
-![Sorry, you've already guessed](docs/You've%20already%20guessed%20t:hangman_image_5.png)
+![Sorry, you've already guessed](docs/Screenshots/You've%20already%20guessed%20t:hangman_image_5.png)
 
 "Congratulations!"
-![Congratulations](docs/Congratulations.png)
+![Congratulations](docs/Screenshots/Congratulations.png)
 
 "Sorry, you lost."
-![Sorry, you lost](docs/Sorry,%20you%20lost:hangman_image_6.png)
+![Sorry, you lost](docs/Screenshots/Sorry,%20you%20lost:hangman_image_6.png)
 
 "View Stats"
-![View Stats](docs/View%20stats.png)
+![View Stats](docs/Screenshots/View%20stats.png)
 
 "Hangman Help"
-![Help page](docs/Hangman%20Help.png)
+![Help page](docs/Screenshots/Hangman%20Help.png)
 
 Quit Game
-![Quit Game](docs/Quit%20Game:Bye.png)
+![Quit Game](docs/Screenshots/Quit%20Game:Bye.png)
