@@ -94,7 +94,17 @@ The main menu is created using a display menu function (See `create_menu` in `ha
 
 If the user inputs their option in uppercase, there is an error handling code that converts their input into lowercase, so the program won't break and will continue as normal (`return menu_selection.lower()` in `create_menu` function in `hangman_functions.py`).
 
-I created a while loop (shown below), which essentially says, "while the user's selection isn't equal to 'q'; if it's space, play the game. If it's 's', display the stats, if it's '?', display the help page, if it is 'q', it print 'bye!' and quit the program. Else/otherwise, if the user inputs anything other than the above options, the program gives an error handling warning message asking the user to "Please select one of the four options displayed" and hit 'Enter'." (Please see actual code for comments as well).
+I created a while loop (shown below), which essentially says, 
+
+    "while the user's selection is not equal to 'q'; 
+        if it's ' ' (space), play the game, 
+        if it's 's', display the stats, 
+        if it's '?', display the help page, 
+        if it is 'q', it prints 'bye!' and quits the program. 
+        Else/otherwise, if the user inputs anything other than the above options, the program gives an error handling warning message asking the user to "Please select one of the four options displayed" and hit 'Enter'." 
+    then when the loop has ended, print "Good Game!""  
+
+(Please see actual code for comments as well).
 
     while user_selection != "q":
         user_selection = create_menu()
@@ -118,6 +128,7 @@ I created a while loop (shown below), which essentially says, "while the user's 
 
 </details><br>
 ___
+
 ### Playing the game:
 
 After the player presses 'Spacebar' + 'Enter', the game starts. A random word is generated using the [wonderwords package](https://pypi.org/project/wonderwords/), which is then displayed as a blanked out word, showing the hidden letters as underscores, for example, the word 'feline' would be displayed as '_ _ _ _ _ _'. An empty 'Hangman' gallows text image is displayed as well.
