@@ -402,13 +402,14 @@ Pressing 'Q' + 'Enter' quits the program altogether.
 See [Help Documentation.md](docs/Help%20Documentation.md) for how to install and use app
 
 
-#### Packages used:
+### Packages used:
 - [Colored](https://pypi.org/project/colored/)
     - Allows colours in program
 
 - [Rich](https://github.com/Textualize/rich)
     - Allows rich text formatting in HELP.md
     - Centers text in code
+    - Also does coloured text
 
 - [WonderWords](https://pypi.org/project/wonderwords/)
     - Generates random word for game
@@ -422,7 +423,7 @@ See [Help Documentation.md](docs/Help%20Documentation.md) for how to install and
     - Testing
 
 -----
-Screenshots (not under > links):
+## Screenshots (not under > links):
 
 Main Menu
 ![Main Menu](docs/Main%20menu.png)
