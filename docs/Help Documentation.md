@@ -57,7 +57,7 @@ ____
 -----
 -  **Press 'S' to view stats:**
 
-    Here you can view your wins and losses! Press any key and  `'Enter'` to exit the stats page.
+    Press `'S' + 'Enter'` to access the Stats page. Here you can view your wins and losses! Press any key and  `'Enter'` or  just `'Enter'` to exit the stats page.
 ---
 -  **Press 'Q' to exit game:**
 
