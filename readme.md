@@ -217,12 +217,13 @@ It starts a loop that iterates over each letter in the `_hangman_word` which is 
         if word_guessed == True:
             self.win_game()
 
-If the player guesses incorrectly (i.e. the letter is not in the hangman word), a message displays saying that the letter guessed is not in the word and the 'Hangman' ASCII image will be updated to reflect the next stage of the hanged man. After every guess, the game checks if there is still an underscore, as this will tell it that the game can't be over yet, as there are still letters to be guessed. 
+ After every guess, the game checks if there is still an underscore, as this will tell it that the game can't be over yet, as there are still letters to be guessed. 
 
     else:
         self._blanked_word += "_"
         word_guessed = False
 
+If the player guesses incorrectly (i.e. the letter is not in the hangman word), a message displays saying that the letter guessed is not in the word and the 'Hangman' ASCII image will be updated to reflect the next stage of the hanged man.
 
 <details><summary>Screenshot of incorrect guess</summary><br>
 feat. hangman_image_2
