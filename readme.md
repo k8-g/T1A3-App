@@ -60,6 +60,12 @@
 - Saves wins and losses in stats.csv  file
 - Loads wins and losses to 'View Stats' page
 ___
+
+### Flowchart Diagram of App
+
+![Flowchart of Hangman](docs/Hangman%20App.drawio.png)
+
+---
 ### Main Menu: 
 
 The main menu screen loads at the beginning of the program. It shows a 'Hangman' ACSII text image, a blinking 'WELCOME TO HANGMAN!' message, and lists the following options. The program waits for the user to input their selection.
