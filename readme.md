@@ -127,7 +127,9 @@ I created a while loop (shown in proper code further below in the next code bloc
 ![Please select one of the four options](docs/Screenshots/Please%20select%20one%20of%20the%20four%20options%20displayed.png)
 
 </details><br>
+
 ___
+
 
 ### Playing the game:
 
