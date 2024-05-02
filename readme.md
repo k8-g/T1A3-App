@@ -386,7 +386,7 @@ The Rich package is used to load the markdown file as well as to style that mark
 
 <details><summary>Screenshot of quit game</summary><br>
 
-![View Stats](docs/Quit%20Game:Bye.png)
+![Quit Game](docs/Quit%20Game:Bye.png)
 
 </details><br>
 
@@ -424,28 +424,41 @@ See [Help Documentation.md](docs/Help%20Documentation.md) for how to install and
 -----
 Screenshots (not under > links):
 
+Main Menu
 ![Main Menu](docs/Main%20menu.png)
 
+"Please select one of the four options displayed."
 ![Please select one of the four options](docs/Please%20select%20one%20of%20the%20four%20options%20displayed.png)
 
+"Try guessing a letter."
 ![Guess a letter](docs/Try%20guessing%20a%20letter:hangman_image_0.png)
 
+"Please only select one letter."
 ![Please only select one letter](docs/Please%20only%20select%20one%20letter.png)
 
+"GAME ENDED"
 ![Game Ended](docs/Game%20ended.png)
 
+"Sorry, ' ' isn't in word."
 ![Sorry, letter isn't in word](docs/Sorry,%20e%20isn't%20in%20this%20word:hangman_image_2.png)
 
+"Yay! You guessed correctly!"
 ![Yay! You guessed correctly!](docs/You%20guessed%20correctly:hangman_1.png)
 
+"Sorry, you've already guessed ' '."
 ![Sorry, you've already guessed](docs/You've%20already%20guessed%20t:hangman_image_5.png)
 
+"Congratulations!"
 ![Congratulations](docs/Congratulations.png)
 
+"Sorry, you lost."
 ![Sorry, you lost](docs/Sorry,%20you%20lost:hangman_image_6.png)
 
+"View Stats"
 ![View Stats](docs/View%20stats.png)
 
+"Hangman Help"
 ![Help page](docs/Hangman%20Help.png)
 
-![View Stats](docs/Quit%20Game:Bye.png)
+Quit Game
+![Quit Game](docs/Quit%20Game:Bye.png)
