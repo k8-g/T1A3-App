@@ -108,7 +108,7 @@ I created a while loop (shown below), which essentially says, "while the user's 
 
 <details><summary>Screenshot of "Please select one of the four options displayed" error handling message</summary><br>
 
-![Main Menu](docs/Please%20select%20one%20of%20the%20four%20options%20displayed.png)
+![Please select one of the four options](docs/Please%20select%20one%20of%20the%20four%20options%20displayed.png)
 
 </details><br>
 ___
@@ -191,7 +191,7 @@ The user can exit the game at any point by pressing '!' + 'Enter'. Exiting the g
 
 <details><summary>Screenshot of "Game Ended" message</summary><br>
 
-![Please only select one letter](docs/Game%20ended.png)
+![Game Ended](docs/Game%20ended.png)
 
 </details><br>
 
@@ -269,7 +269,7 @@ When this happens, a message is displayed letting the user know that they've alr
 <details><summary>Screenshot of "You've already guessed {_guess}."</summary><br>
 feat. hangman_image_5
 
-![Sorry, letter isn't in word](docs/You've%20already%20guessed%20t:hangman_image_5.png)
+![Sorry, you've already guessed](docs/You've%20already%20guessed%20t:hangman_image_5.png)
 
 </details><br>
 
@@ -421,3 +421,31 @@ See [Help Documentation.md](docs/Help%20Documentation.md) for how to install and
     - Error handling
     - Testing
 
+-----
+Screenshots (not under > links):
+
+![Main Menu](docs/Main%20menu.png)
+
+![Please select one of the four options](docs/Please%20select%20one%20of%20the%20four%20options%20displayed.png)
+
+![Guess a letter](docs/Try%20guessing%20a%20letter:hangman_image_0.png)
+
+![Please only select one letter](docs/Please%20only%20select%20one%20letter.png)
+
+![Game Ended](docs/Game%20ended.png)
+
+![Sorry, letter isn't in word](docs/Sorry,%20e%20isn't%20in%20this%20word:hangman_image_2.png)
+
+![Yay! You guessed correctly!](docs/You%20guessed%20correctly:hangman_1.png)
+
+![Sorry, you've already guessed](docs/You've%20already%20guessed%20t:hangman_image_5.png)
+
+![Congratulations](docs/Congratulations.png)
+
+![Sorry, you lost](docs/Sorry,%20you%20lost:hangman_image_6.png)
+
+![View Stats](docs/View%20stats.png)
+
+![Help page](docs/Hangman%20Help.png)
+
+![View Stats](docs/Quit%20Game:Bye.png)
