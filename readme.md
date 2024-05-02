@@ -405,7 +405,7 @@ Pressing 'Q' + 'Enter' quits the program altogether.
 
 ## R8. Help Documentation
 
-See [Help Documentation.md](docs/Help%20Documentation.md) for how to install and use app
+See [docs/Help Documentation.md](docs/Help%20Documentation.md) for how to install and use app
 
 
 ### Packages used:
@@ -427,6 +427,9 @@ See [Help Documentation.md](docs/Help%20Documentation.md) for how to install and
 - [Pytest](https://docs.pytest.org/en/stable/)
     - Error handling
     - Testing
+
+____
+## Hope you enjoyed my Hangman game 😁
 
 -----
 ## Screenshots (not under > links):
