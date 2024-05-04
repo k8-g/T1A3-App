@@ -66,6 +66,8 @@ ___
 ![Flowchart of Hangman](docs/Hangman%20App.drawio.png)
 
 ---
+## R6. Explain the features:
+
 ### Main Menu: 
 
 The main menu screen loads at the beginning of the program. It shows a 'Hangman' ACSII text image, a blinking 'WELCOME TO HANGMAN!' message, and lists the following options. The program waits for the user to input their selection.
