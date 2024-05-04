@@ -94,7 +94,7 @@ The main menu is created using a display menu function (See `create_menu` in `ha
         menu_selection = input("Select one of the above and hit 'Enter'.")
         return menu_selection.lower()
 
-If the user inputs their option in uppercase, there is an error handling code that converts their input into lowercase, so the program won't break and will continue as normal (`return menu_selection.lower()` in `create_menu` function in `hangman_functions.py`).
+If the user inputs their option in uppercase, there is an error handling code that converts their input into lowercase, so the program won't break and will continue as normal (`return menu_selection.lower()` in `create_menu` function in `hangman_functions.py`). The above options are considered local variables used in this function.
 
 I created a while loop (shown in proper code further below in the next code block), which essentially says, 
 
