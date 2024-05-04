@@ -7,7 +7,7 @@ from Game import Game
 from Stats import Stats
 
 
-# Global varibles that can be called on from anywhere in this file
+# Global varibles that can be called on from anywhere in this file (variable scope)
 player_name = "Player"
 stats = Stats(player_name)
 stats.load_stats()

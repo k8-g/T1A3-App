@@ -3,7 +3,7 @@ from colored import Fore, Back, Style
 # Imports of own functions
 from hangman_functions import display_help, display_intro, display_stats, play_game, create_menu
 
-# Local variable after user input
+# Local variable after user input, variable scope is within the following function
 user_selection = ""
 
 # Displays intro menu
